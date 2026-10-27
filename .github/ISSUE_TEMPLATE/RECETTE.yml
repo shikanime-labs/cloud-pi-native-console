@@ -4,31 +4,14 @@ title: "🧪 [RECETTE] - <title>"
 labels: [recette]
 body:
   - type: textarea
-    id: contexte
-    attributes:
-      label: Contexte
-      description: Release candidate visée, session de recette, périmètre de la campagne.
-      placeholder: Description courte et explicite de la campagne...
-    validations:
-      required: true
-
-  - type: textarea
     id: sondes
     attributes:
       label: Sondes
-      description: Une sonde par élément — correctif visé, fixture, résultat attendu, ordre d'exécution.
+      description: Une ligne par sonde — ID de scénario du cahier de tests fonctionnels, contrôle, issue amont visée. Les scénarios absents du cahier sont marqués « à compléter ».
       value: |
-        1. Sonde '...' : fixture '...', résultat attendu '...'
+        - [ ] <ID scénario> — <contrôle> (<issue amont>)
     validations:
       required: true
-
-  - type: textarea
-    id: donnees
-    attributes:
-      label: Données de campagne
-      description: Projets éphémères, comptes, services externes simulés en échec.
-    validations:
-      required: false
 
   - type: textarea
     id: hors-perimetre
@@ -38,11 +21,11 @@ body:
       required: false
 
   - type: input
-    id: version
+    id: cahier
     attributes:
-      label: Version de la console candidate
-      description: Version candidate soumise à la recette.
-      placeholder: v9.28.0
+      label: Cahier de référence
+      description: Lien vers le cahier de tests fonctionnels et sa révision.
+      placeholder: https://.../cahier-tests-fonctionnels-cpin.md@<commit>
     validations:
       required: true
 
@@ -52,11 +35,18 @@ body:
       label: Définition du fini
       description: Cochez les différents éléments de la Definition Of Done.
       options:
-        - label: Les sondes sont exécutées et consignées dans le compte-rendu
-          required: false
-        - label: Le compte-rendu est versionné dans le dépôt
+        - label: Les sondes listées sont exécutées et leurs statuts consignés
           required: false
         - label: Les écarts bloquants sont ouverts en issues et référencés
           required: false
         - label: Les issues amont validées sont closes après passage de la recette
           required: false
+        - label: Le compte-rendu de campagne est publié
+          required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Références
+    validations:
+      required: false
