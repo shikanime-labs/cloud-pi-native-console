@@ -13,15 +13,6 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: cahier
-    attributes:
-      label: Cahier de référence
-      description: Cahier de tests fonctionnels et sa révision.
-      placeholder: https://.../cahier-tests-fonctionnels-cpin.md@<commit>
-    validations:
-      required: true
-
   - type: textarea
     id: references
     attributes:
