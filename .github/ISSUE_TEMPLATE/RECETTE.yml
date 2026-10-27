@@ -1,0 +1,62 @@
+name: 🧪 Recette
+description: Ouvrir une campagne de recette pour une release candidate.
+title: "🧪 [RECETTE] - <title>"
+labels: [recette]
+body:
+  - type: textarea
+    id: contexte
+    attributes:
+      label: Contexte
+      description: Release candidate visée, session de recette, périmètre de la campagne.
+      placeholder: Description courte et explicite de la campagne...
+    validations:
+      required: true
+
+  - type: textarea
+    id: sondes
+    attributes:
+      label: Sondes
+      description: Une sonde par élément — correctif visé, fixture, résultat attendu, ordre d'exécution.
+      value: |
+        1. Sonde '...' : fixture '...', résultat attendu '...'
+    validations:
+      required: true
+
+  - type: textarea
+    id: donnees
+    attributes:
+      label: Données de campagne
+      description: Projets éphémères, comptes, services externes simulés en échec.
+    validations:
+      required: false
+
+  - type: textarea
+    id: hors-perimetre
+    attributes:
+      label: Hors périmètre
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Version de la console candidate
+      description: Version candidate soumise à la recette.
+      placeholder: v9.28.0
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: dod
+    attributes:
+      label: Définition du fini
+      description: Cochez les différents éléments de la Definition Of Done.
+      options:
+        - label: Les sondes sont exécutées et consignées dans le compte-rendu
+          required: false
+        - label: Le compte-rendu est versionné dans le dépôt
+          required: false
+        - label: Les écarts bloquants sont ouverts en issues et référencés
+          required: false
+        - label: Les issues amont validées sont closes après passage de la recette
+          required: false
