@@ -7,42 +7,20 @@ body:
     id: sondes
     attributes:
       label: Sondes
-      description: Une ligne par sonde — ID de scénario du cahier de tests fonctionnels, contrôle, issue amont visée. Les scénarios absents du cahier sont marqués « à compléter ».
+      description: Une ligne par sonde — ID du cahier de tests fonctionnels quand il existe, « à compléter » sinon, issue amont visée. Les dernières cases ferment la campagne.
       value: |
         - [ ] <ID scénario> — <contrôle> (<issue amont>)
     validations:
       required: true
 
-  - type: textarea
-    id: hors-perimetre
-    attributes:
-      label: Hors périmètre
-    validations:
-      required: false
-
   - type: input
     id: cahier
     attributes:
       label: Cahier de référence
-      description: Lien vers le cahier de tests fonctionnels et sa révision.
+      description: Cahier de tests fonctionnels et sa révision.
       placeholder: https://.../cahier-tests-fonctionnels-cpin.md@<commit>
     validations:
       required: true
-
-  - type: checkboxes
-    id: dod
-    attributes:
-      label: Définition du fini
-      description: Cochez les différents éléments de la Definition Of Done.
-      options:
-        - label: Les sondes listées sont exécutées et leurs statuts consignés
-          required: false
-        - label: Les écarts bloquants sont ouverts en issues et référencés
-          required: false
-        - label: Les issues amont validées sont closes après passage de la recette
-          required: false
-        - label: Le compte-rendu de campagne est publié
-          required: false
 
   - type: textarea
     id: references
